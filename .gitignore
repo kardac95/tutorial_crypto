@@ -1,3 +1,21 @@
+#eclipse files
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+#intellj files
+*.idea
+out/
+*.iml
+
 # Compiled class file
 *.class
 
