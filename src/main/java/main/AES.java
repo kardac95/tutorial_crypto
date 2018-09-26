@@ -1,25 +1,20 @@
 package main;
 
 import crypto.Crypto;
-import jdk.internal.cmm.SystemResourcePressureImpl;
 
 public class AES {
     public static void main(String[] args) {
-        Crypto crypt = new Crypto();
 
-        String myData = "aaaaaaaaaaaaaaaakallekallekalle";
-        System.out.println(myData);
+        String myData = "kalle is the greatest";
+        System.out.println("Original message: " + myData + "\n");
 
         try {
-            crypt.generatePrivateKey();
-            System.out.println(crypt.getPrivateKey());
-            System.out.println();
-            String encryptedData=crypt.encrypt(crypt.getPrivateKey().toString(), myData);
-            System.out.println(encryptedData);
-            System.out.println();
-            System.out.println(crypt.getPrivateKey());
-            String decryptedData = crypt.decrypt(crypt.getPrivateKey().toString(), encryptedData);
-            System.out.println(decryptedData);
+            Crypto crypt = new Crypto();
+            String encryptedData=crypt.AESEncrypt(crypt.getSkey().toString(), myData);
+            System.out.println("Encrypted data: " + encryptedData + "\n");
+
+            String decryptedData = crypt.AESDecrypt(crypt.getSkey().toString(), encryptedData);
+            System.out.println("Decrypted data: " + decryptedData);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
